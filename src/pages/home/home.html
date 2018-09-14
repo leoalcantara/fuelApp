@@ -1,17 +1,28 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title black>Álcool ou Gasolina</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <ion-card-header>
+    <h5>Preencha os valores dos combustíveis</h5>
+  </ion-card-header>
+ 
+ <ion-card padding>
+   
+   <ion-item>
+     <ion-label stacked>Gasolina</ion-label>
+     <ion-input type="text" values=""></ion-input>
+   </ion-item>
+
+   <ion-item>
+    <ion-label stacked>Álcool</ion-label>
+    <ion-input type="text" values=""></ion-input>
+  </ion-item>
+ 
+ <div padding>
+   <button ion-button full ><ion-icon name="calculator">  Comparar </ion-icon></button>
+ </div>
+</ion-card>
 </ion-content>
