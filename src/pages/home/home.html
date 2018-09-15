@@ -4,25 +4,39 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-card-header>
-    <h5>Preencha os valores dos combustíveis</h5>
-  </ion-card-header>
- 
- <ion-card padding>
-   
-   <ion-item>
-     <ion-label stacked>Gasolina</ion-label>
-     <ion-input type="text" values=""></ion-input>
-   </ion-item>
+<ion-content padding> 
 
-   <ion-item>
-    <ion-label stacked>Álcool</ion-label>
-    <ion-input type="text" values=""></ion-input>
-  </ion-item>
- 
  <div padding>
-   <button ion-button full ><ion-icon name="calculator">  Comparar </ion-icon></button>
- </div>
-</ion-card>
+
+<form padding [formGroup]="valuesForm" (submit)="comparar()" novalidate>
+  <ion-list>
+    <ion-item>
+      <ion-label color='primary' floating> Gasolina </ion-label>
+      <ion-input type="number" ></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label color='primary' floating> Álcool</ion-label>
+      <ion-input type="number"  values=""></ion-input>
+  </ion-item>
+
+
+</ion-list>
+
+<div row padding>
+    <div col>
+        <button ion-button color="primary"full>
+            <ion-icon ios="ios-speedometer" md="md-speedometer"> Comparar </ion-icon>
+        </button>
+    </div>
+    <div col>
+        <button ion-button color="secundary" full>
+            <ion-icon ios="ios-walk" md="md-walk"> sair </ion-icon>
+        </button>
+    </div>
+    
+  </div>
+</form>
+
+</div>
 </ion-content>
