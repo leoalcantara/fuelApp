@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import {FormBuilder, Validators} from '@angular/forms';
 
 
@@ -11,13 +11,14 @@ export class HomePage {
 
   public valuesForm: any;
 
+  public  fuel(gasolina: number, etanol:number):string{   
+    if(( gasolina * 0.70) >= etanol ){
+      return "Etanol";
+    } else {
+      return "Gasolina";
+    }
 
+  };
 
-  constructor(formBuilder: FormBuilder){
-    this.valuesForm = formBuilder.group({
-      Gasolina:['', Validators.required],
-      Etanol:['', Validators.required]
-    })
-
-  }
+  
 }

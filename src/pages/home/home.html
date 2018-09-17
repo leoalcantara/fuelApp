@@ -8,7 +8,7 @@
 
  <div padding>
 
-<form padding [formGroup]="valuesForm" (submit)="comparar()" novalidate>
+<form padding (submit)="comparar()" novalidate>
   <ion-list>
     <ion-item>
       <ion-label color='primary' floating> Gasolina </ion-label>
@@ -22,8 +22,7 @@
 
 
 </ion-list>
-
-<div row padding>
+<div padding>
     <div col>
         <button ion-button color="primary"full>
             <ion-icon ios="ios-speedometer" md="md-speedometer"> Comparar </ion-icon>
