@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title black>Álcool ou Gasolina</ion-title>
+    <ion-title black align="center">Álcool ou Gasolina</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -8,35 +8,38 @@
 
   <div padding>
 
-    <form padding [formGroup]="valuesForm" (submit)="compara()" novalidate>
+    <form padding [formGroup]="valuesForm" (submit)="validar()" novalidate>
       <ion-list>
+
         <ion-item>
           <ion-label color='primary' floating> Gasolina </ion-label>
           <ion-input [(ngModel)]="gasolina" formControlName="gasolina" type="number">
-          </ion-input>          
+          </ion-input>
         </ion-item>
-        <h6 *ngIf ="erroGasolina" class="erro">{{messageGasolina}}</h6>
+
+        <h6 *ngIf="erroGasolina" class="erro">{{messageGasolina}}</h6>
+
         <ion-item>
           <ion-label color='primary' floating> Álcool</ion-label>
           <ion-input [(ngModel)]="etanol" formControlName="etanol" type="number">
           </ion-input>
         </ion-item>
-        <h6 *ngIf ="erroEtanol" class="erro">{{messageEtanol}}</h6>
 
+        <h6 *ngIf="erroEtanol" class="erro">{{messageEtanol}}</h6>
+
+        <ion-item>
+          <div padding>
+        
+            <button ion-button color="primary" full>
+              <ion-icon ios="ios-speedometer" md="md-speedometer"> Comparar </ion-icon>
+            </button>
+          </div>        
+        </ion-item>
+
+    
       </ion-list>
-      <div padding>
-        <div col>
-          <button ion-button  color="primary" full>
-            <ion-icon ios="ios-speedometer" md="md-speedometer"> Comparar </ion-icon>
-          </button>
-        </div>
-        <div col>
-          <button ion-button color="secundary" full>
-            <ion-icon ios="ios-walk" md="md-walk"> sair </ion-icon>
-          </button>
-        </div>
 
-      </div>
+        
     </form>
 
   </div>
