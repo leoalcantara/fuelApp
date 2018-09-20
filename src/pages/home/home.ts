@@ -11,18 +11,30 @@ import { formArrayNameProvider } from '@angular/forms/src/directives/reactive_di
 
 export class HomePage {
   valuesForm: FormGroup;
+  resultado: AlertController;
+
   erroGasolina = false;
   erroEtanol = false;
   messageGasolina = '';
   messageEtanol = '';
 
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private alertCtrl: AlertController) {
     this.valuesForm = formBuilder.group({
       gasolina: ['', Validators.required],
-      etanol: [' ', Validators.required],
+      etanol: ['', Validators.required],
     })
   }
+
+  presentAlert(fuel: string) {
+    let alert = this.alertCtrl.create({
+      title: fuel,
+      subTitle: ' é o melhor combustivel',
+      buttons: ['OK']
+    });
+    alert.present();
+  }    
+
 
   validar() {
     let { gasolina, etanol } = this.valuesForm.controls;
@@ -37,19 +49,20 @@ export class HomePage {
 
       if (!etanol.valid) {
         this.erroEtanol = true;
-        this.messageEtanol = 'Ops! Preencha campo Etanol '
+        this.messageEtanol = 'Ops! Preencha campo Álcool '
 
       } else {
         this.messageEtanol = '';
         this.erroEtanol = false;
       }
     } else {
-      //alert(parseFloat(gasolina.value) + parseFloat(etanol.value));
+      
       this.erroEtanol = false;
-      this.erroGasolina = false;
-      alert(this.comparar(gasolina, etanol));
+      this.erroGasolina = false;      
+     
+      this.presentAlert(this.comparar(gasolina, etanol));
+    
     }
-
   }
 
   comparar(gasolina, etanol): string{
@@ -57,8 +70,7 @@ export class HomePage {
       return "Etanol"
     } else{
       return "Gasolina"
-    }
-
+          }
   }
 
 }
